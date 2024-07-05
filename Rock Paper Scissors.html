@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<!-- saved from url=(0053)https://supersimple.dev/projects/rock-paper-scissors/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Rock Paper Scissors</title>
+    <style>
+      body {
+        background-color: rgb(25, 25, 25);
+        color: white;
+        font-family: Arial;
+      }
+
+      .title {
+        font-size: 30px;
+        font-weight: bold;
+      }
+
+      .move-icon {
+        height: 50px;
+      }
+
+      .move-button {
+        width: 120px;
+        height: 120px;
+        border-radius: 60px;
+        border: 3px solid white;
+
+        background-color: transparent;
+        margin-right: 10px;
+        cursor: pointer;
+      }
+
+      .result {
+        font-size: 25px;
+        font-weight: bold;
+        margin-top: 50px;
+      }
+
+      .score {
+        margin-top: 60px;
+      }
+
+      .reset-score-button {
+        background-color: white;
+        border: none;
+        font-size: 15px;
+        padding: 8px 15px;
+        cursor: pointer;
+      }
+    </style>
+  <link type="text/css" rel="stylesheet" href="./Rock Paper Scissors_files/css2"></head>
+  <body>
+    <p class="title">Rock Paper Scissors</p>
+
+    <button onclick="
+      makeMove(&#39;rock&#39;);
+    " class="move-button">
+      <img class="move-icon" src="./Rock Paper Scissors_files/rock-emoji.png">
+    </button>
+
+    <button onclick="
+      makeMove(&#39;paper&#39;);
+    " class="move-button">
+      <img class="move-icon" src="./Rock Paper Scissors_files/paper-emoji.png">
+    </button>
+
+    <button onclick="
+      makeMove(&#39;scissors&#39;);
+    " class="move-button">
+      <img class="move-icon" src="./Rock Paper Scissors_files/scissors-emoji.png">
+    </button>
+
+    <p class="result js-result"></p>
+    <p class="js-moves-chosen"></p>
+
+    <p class="score js-score">
+          Wins: 0, Losses: 0, Ties: 0
+        </p>
+    <button class="reset-score-button" onclick="
+      resetScore();
+    ">
+      Reset Score
+    </button>
+
+    <script>
+      let score = {
+        wins: 0,
+        losses: 0,
+        ties: 0
+      };
+
+      const savedScore = JSON.parse(localStorage.getItem('score'));
+      if (savedScore) {
+        score = savedScore;
+      }
+
+      updateScoreElement();
+
+      function makeMove(playerMove) {
+        const computerMove = pickComputerMove();
+        const resultElement = document.querySelector('.js-result');
+
+        if (playerMove === computerMove) {
+          resultElement.innerHTML = `Tie.`;
+          score.ties += 1;
+
+        } else if (
+          (playerMove === 'rock' && computerMove === 'scissors') ||
+          (playerMove === 'paper' && computerMove === 'rock') ||
+          (playerMove === 'scissors' && computerMove === 'paper')
+        ) {
+          resultElement.innerHTML = `You win.`;
+          score.wins += 1;
+
+        } else {
+          resultElement.innerHTML = `You lose.`;
+          score.losses += 1;
+        }
+
+        const movesElement = document.querySelector('.js-moves-chosen');
+        movesElement.innerHTML = `
+          You
+          <img src="images/${playerMove}-emoji.png" class="move-icon">
+          <img src="images/${computerMove}-emoji.png" class="move-icon">
+          Computer
+        `;
+
+        updateScoreElement();
+        localStorage.setItem('score', JSON.stringify(score));
+      }
+
+      function resetScore() {
+        score = {
+          wins: 0,
+          losses: 0,
+          ties: 0
+        };
+
+        updateScoreElement();
+        localStorage.removeItem('score');
+      }
+
+      function pickComputerMove() {
+        const randomNumber = Math.random();
+        let computerMove;
+
+        if (randomNumber < (1 / 3)) {
+          computerMove = 'rock';
+        } else if (randomNumber < (2 / 3)) {
+          computerMove = 'paper';
+        } else {
+          computerMove = 'scissors';
+        }
+
+        return computerMove;
+      }
+
+      function updateScoreElement() {
+        document.querySelector('.js-score').innerHTML = `
+          Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}
+        `;
+      }
+    </script>
+  
+
+<span id="PING_CONTENT_DLS_POPUP" style="display: none;"></span><div style="background-color: transparent; border: none; bottom: 15px; display: block; margin: 0px; opacity: 1; padding: 0px; position: fixed; right: 15px; z-index: 2147483646;"><template shadowrootmode="closed"><style>/*!
+ * 
+ *     MCAFEE RESTRICTED CONFIDENTIAL
+ *     Copyright (c) 2024 McAfee, LLC
+ *
+ *     The source code contained or described herein and all documents related
+ *     to the source code ("Material") are owned by McAfee or its
+ *     suppliers or licensors. Title to the Material remains with McAfee
+ *     or its suppliers and licensors. The Material contains trade
+ *     secrets and proprietary and confidential information of McAfee or its
+ *     suppliers and licensors. The Material is protected by worldwide copyright
+ *     and trade secret laws and treaty provisions. No part of the Material may
+ *     be used, copied, reproduced, modified, published, uploaded, posted,
+ *     transmitted, distributed, or disclosed in any way without McAfee's prior
+ *     express written permission.
+ *
+ *     No license under any patent, copyright, trade secret or other intellectual
+ *     property right is granted to or conferred upon you by disclosure or
+ *     delivery of the Materials, either expressly, by implication, inducement,
+ *     estoppel or otherwise. Any license under such intellectual property rights
+ *     must be expressed and approved by McAfee in writing.
+ *
+ */
+@import url(https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,400;0,500;0,600;0,800;1,400;1,500;1,600;1,800&display=swap);
+*{border:0;box-sizing:border-box;font:inherit;font-family:"mcafeeOpenSans","Open Sans",Arial,Helvetica,sans-serif;font-size:100%;margin:0;padding:0;vertical-align:baseline;outline:none}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}html,body{background-color:#f5f6fa;font-family:"Open Sans","mcafeeOpenSans",Arial,Helvetica,sans-serif;line-height:1;height:100%;width:100%}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:after,blockquote:before,q:after,q:before{content:"";content:none}table{border-collapse:collapse;border-spacing:0}b{font-weight:bold}img{display:block}.dls__container{align-items:center;display:flex;margin:0 auto;margin-top:50px;position:relative}.dls__popup__expanded{align-items:center;overflow:hidden;border-radius:100px;cursor:pointer;display:flex;left:0;padding:15px;position:absolute;height:95px;width:383px;background-color:#fff;transition:all .3s ease-in-out}.dls__popup__expanded .dls__icon{height:65px;width:73px}.content{margin-left:12px}.content .content__images{display:flex;align-items:center;width:250px}.content .content__images .seperator__line{margin-left:5px;margin-right:10px}.content .content__images #dls_close_icon{cursor:pointer;margin-left:auto;margin-right:0px}.content p{font-family:"Poppins",Arial,Helvetica,sans-serif;font-weight:"400";font-size:14px;line-height:20px;margin-top:8px;color:#4258ff;width:250px;cursor:pointer}.shield{overflow:hidden;box-shadow:0px 2px 4px 0px rgba(33,41,52,.12),0px -1px 2px 0px rgba(0,0,0,.08);align-items:center;border-radius:100px;bottom:0;display:flex;height:95px;justify-content:center;position:absolute;right:0;width:383px;transition:all .3s ease-in-out}.shield__circle{display:flex;justify-content:center;align-items:center;width:55px;height:55px;background-color:#c01818;transition:all .6s ease-in-out .2s;z-index:1;opacity:0}
+
+/*# sourceMappingURL=../sourceMap/chrome/css/download_scan_popup.css.map*/</style><div class="dls__container">
+  <div class="shield" style="background: transparent; opacity: 0.1; display: none;">
+    <div class="shield__circle" style="opacity: 1;">
+      <img src="chrome-extension://fheoggkfdfchfphceeifdbepaooicaho/images/download_scan/mcafee_logo_white.svg?secret=qmilqp" x-mcsrc="" id="dls_ballon_icon" x-mcsrcparsed="true">
+    </div>
+    <div class="dls__popup__expanded" style="opacity: 0;">
+      <img src="chrome-extension://fheoggkfdfchfphceeifdbepaooicaho/images/download_scan/download_scan_icon.svg?secret=qmilqp" x-mcsrc="" class="dls__icon" x-mcsrcparsed="true">
+      <div class="content">
+        <div class="content__images">
+          <img src="chrome-extension://fheoggkfdfchfphceeifdbepaooicaho/images/download_scan/mcafee_logo_red.svg?secret=qmilqp" x-mcsrc="" id="dls_mcafee_logo" x-mcsrcparsed="true">
+          <img src="chrome-extension://fheoggkfdfchfphceeifdbepaooicaho/images/download_scan/seperator_line.svg?secret=qmilqp" x-mcsrc="" class="seperator__line" x-mcsrcparsed="true">
+          <img src="chrome-extension://fheoggkfdfchfphceeifdbepaooicaho/images/download_scan/webadvisor.svg?secret=qmilqp" x-mcsrc="" x-mcsrcparsed="true">
+          <img src="chrome-extension://fheoggkfdfchfphceeifdbepaooicaho/images/download_scan/close-outline.svg?secret=qmilqp" x-mcsrc="" id="dls_close_icon" x-mcsrcparsed="true">
+        </div>
+        <p id="download_scan_popup_expanded_descriptions">Your download's being scanned. We'll let you know if there's an issue.</p>
+      </div>
+    </div>
+  </div>
+</div><style>/*!
+ * 
+ *     MCAFEE RESTRICTED CONFIDENTIAL
+ *     Copyright (c) 2024 McAfee, LLC
+ *
+ *     The source code contained or described herein and all documents related
+ *     to the source code ("Material") are owned by McAfee or its
+ *     suppliers or licensors. Title to the Material remains with McAfee
+ *     or its suppliers and licensors. The Material contains trade
+ *     secrets and proprietary and confidential information of McAfee or its
+ *     suppliers and licensors. The Material is protected by worldwide copyright
+ *     and trade secret laws and treaty provisions. No part of the Material may
+ *     be used, copied, reproduced, modified, published, uploaded, posted,
+ *     transmitted, distributed, or disclosed in any way without McAfee's prior
+ *     express written permission.
+ *
+ *     No license under any patent, copyright, trade secret or other intellectual
+ *     property right is granted to or conferred upon you by disclosure or
+ *     delivery of the Materials, either expressly, by implication, inducement,
+ *     estoppel or otherwise. Any license under such intellectual property rights
+ *     must be expressed and approved by McAfee in writing.
+ *
+ */
+.mc-interactive-balloon{position:absolute;right:-50px;bottom:8px;box-shadow:rgba(0,0,0,.12) 0px 0px 10px;height:40px;width:40px;background:#1671ee;border-radius:20px;display:flex;justify-content:center;align-items:center}
+
+/*# sourceMappingURL=../sourceMap/chrome/css/interactive_balloon.css.map*/</style></template></div></body></html>

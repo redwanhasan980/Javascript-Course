@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Function</title>
+    <style>
+     
+    </style>
+
+  </head>
+
+  <body>
+      
+    <script>
+     function fun()
+     {
+       console.log('hello');
+     }
+    fun();
+    //function can be just like another value like variable or object
+    const fun1=function welcome(){  
+      console.log("welcome");
+    }
+    console.log(fun1);
+    console.log(typeof fun1); 
+    fun1();  
+    //sine the function has a variable name function doesnt need a name ..its call annonymous function
+    // const fun1=function(){  
+    //   console.log("welcome");
+    // }
+    //function can be saved in a object just like other value
+    const obj1={
+        num:2,
+        fun2 : function (){
+           console.log('hello');
+        }
+    };
+    obj1.fun2();
+    // function can be passed as a parameter 
+    function fun3(param) 
+    {
+       param();
+    }
+    function fun4()
+    {
+       console.log('hello fun');
+    }
+    fun3(fun4);
+
+    setTimeout(function(){
+      console.log("timeout");
+    },3000);
+    console.log('new line');//asyncronus code ,because this line execute first and then the timeout function
+    setInterval(function(){
+       console.log("interval");
+
+    },3000);
+    console.log('new line2');
+
+    [
+       1,2,3,4,6
+    ].forEach(function (item,index) {
+      console.log(item);
+      console.log(index);
+    });
+    //continue in foreach
+    [
+       1,2,3,4,6
+    ].forEach(function (item,index) {
+      if(item===2)
+      return;
+      console.log(item);
+     
+    });
+
+    //arrowfunction
+    // const arrow = (param) =>{
+    // }
+    const arrow=param=>{
+    }
+    // const sum=(param1,param2)=>{
+    //   return param1+param2;
+    //}
+    const sum=(param1,param2)=>param1+param2;
+  console.log([1,-1,5,-2].filter((value,index)=>{
+     if(value>=0)
+    return true;
+  else 
+   return false;
+   }));
+   console.log([1,2,3,4,6].map((value,index)=>{
+return value*2;
+   }));
+    </script>
+  </body>

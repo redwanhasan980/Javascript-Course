@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>rock paper</title>
+  <style>
+
+  </style>
+
+</head>
+
+<body>
+  <h3>RPS</h3>
+  <button onclick="
+  user = 0;
+  com = Math.floor(Math.random() * 3);
+  if(com===0)
+  alert('You picked rock Computer picked rock, tie');
+  else if(com === 1)
+  alert('You picked rock Computer picked paper, lose');
+else alert('You picked rock Computer picked sessiors, win');
+     ">Rock</button>
+  <button onclick="
+  user = 1;
+  com = Math.floor(Math.random() * 3);
+       if(com===0)
+       alert('You picked paper Computer picked rock, win');
+       else if(com === 1)
+       alert('You picked paper Computer picked paper, tie');
+     else
+     alert('You picked paper Computer picked sceissors, lose');
+      ">Paper</button>
+  <button onclick="
+  user = 2;
+  com = Math.floor(Math.random() * 3);
+       if(com===0)
+       alert('You picked sceirros Computer picked rock, lose');
+    
+       else if(com === 1)
+       alert('You picked sceirros Computer picked paper, win');
+    
+       else 
+        alert('You picked sceirros Computer picked sceissors, tie');
+       ">Scissors</button>
+
+  <script>
+
+    let com = 0;
+    let user = 0;
+  </script>
+</body>
+
+</html>

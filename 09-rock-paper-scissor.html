@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>rock paper</title>
+  <style>
+
+  </style>
+
+</head>
+
+<body>
+  <h3>Rock Paper Scissors</h3>
+  <button onclick="
+  rock();
+     ">Rock</button>
+  <button onclick="
+      paper();
+      ">Paper</button>
+  <button onclick="
+  scissor();
+       ">Scissors</button>
+  <p class="js-scoreBoard"></p>
+  <button onclick="
+  score.lose=0;
+  score.win=0;
+  score.tie=0;
+  updatescore();
+  localStorage.removeItem('score');
+  
+       ">Reset</button>
+  <script>
+    let score = JSON.parse(localStorage.getItem('score'));
+    if (!score) {
+      score = {
+        lose: 0,
+        win: 0,
+        tie: 0
+      };
+
+    }
+    let com;
+    let user = '';
+    let result;
+
+    function updatescore() {
+      let scoreBoard = document.querySelector('.js-scoreBoard');
+      scoreBoard.innerHTML = `${result} <br> You picked ${user} Computer picked ${com},. <br>Wins : ${score.win} Loses ${score.lose} tie ${score.tie}`;
+    }
+    function comMove() {
+      com = Math.floor(Math.random() * 3);
+      if (com === 0)
+        com = 'rock';
+      else if (com === 1)
+        com = 'paper';
+      else
+        com = 'scssiors';
+      console.log(com);
+    }
+    function rock() {
+      user = 'rock';
+      comMove();
+      if (com === 'rock') {
+        result = 'tie';
+        score.tie++;
+      }
+      else if (com === 'paper') {
+        result = 'lose';
+        score.lose++;
+      }
+      else { result = 'win'; score.win++; }
+
+      localStorage.setItem('score', JSON.stringify(score));
+      // alert(``);
+      updatescore();
+
+    }
+    function paper() {
+      user = 'paper';
+      comMove();
+      if (com === 'rock') { result = 'win'; score.win++; }
+      else if (com === 'paper') {
+        result = 'tie';
+        score.tie++;
+      }
+      else {
+        result = 'lose';
+        score.lose++;
+      }
+      localStorage.setItem('score', JSON.stringify(score));
+      updatescore();
+      // scoreBoard.innerHTML=`Wins : ${score.win} Loses ${score.lose} tie ${score.tie}`;
+    }
+    function scissor() {
+      user = 'scssiors';
+      comMove();
+      if (com === 'rock') {
+        result = 'lose';
+        score.lose++;
+      }
+
+      else if (com === 'paper') { result = 'win'; score.win++; }
+
+      else {
+        result = 'tie';
+        score.tie++;
+      }
+      localStorage.setItem('score', JSON.stringify(score));
+      updatescore();
+      // scoreBoard.innerHTML=`Wins : ${score.win} Loses ${score.lose} tie ${score.tie}`;
+    }
+
+  </script>
+</body>
+
+</html>

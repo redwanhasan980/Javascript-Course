@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Object</title>
+    <style>
+     
+    </style>
+
+  </head>
+
+  <body>
+      
+    <script>
+      //just like structure
+    const product = {
+      name : 'iPhone',
+      price : 1090
+    };
+    console.log(product);
+   
+    product.name='sdfa';
+    console.log(product.name);
+    product.newpro=102;
+    delete product.name;
+    console.log(product);
+    console.log(product['price']);
+    //nested object and function
+    const person = {
+      rating : {
+        score : 10,
+        review : 'good'
+      },
+      fun : function(){
+      console.log('fun');
+      }
+    }
+ console.log(person.rating.score);
+ person.fun();
+ console.log(typeof console);
+ console.log(typeof person.fun);
+ // convert javasrcpit obj to json
+ const json = JSON.stringify(product);
+ console.log( json);
+ // json to javascript
+ const java=JSON.parse(json);
+ console.log(java);
+ //local storage (doesnt deleted when refrash like variabe)
+ localStorage.setItem('massage','hello');
+ console.log(localStorage.getItem('massage'));
+console.log('hello'.length);
+console.log('hello'.toUpperCase());// auto boxing  make a specail object
+//object is like OOP  object
+// we cant compare objkect directly
+// object just have the referance
+//const name = product.name;
+//const{name}=product;
+const{name,price}=product;//smae 
+const ob={
+  name
+  //same as name : name
+}
+    </script>
+  </body>
