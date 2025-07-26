@@ -10,18 +10,24 @@
 </head>
 
 <body>
-<button>hello</button>
-<button class="js-button">hello2</button>
+  <button onclick="cng();">hello</button>
+  <button class="js-button">hello2</button>
   <script>
     // document.body.innerHTML = '<h1>Hello World!</h1>';
-  //   console.log(document.title);
-  //   document.title='Good';
-  //  console.log(typeof document.body);
-  //  console.log(document.body.innerHTML);
-  //  document.body.innerHTML='<button>Good</button>';
-  document.querySelector('button')
-    .innerHTML='cha';
-  console.log(document.querySelector('button'));
-  console.log(document.querySelector('.js-button'));
+    //   console.log(document.title);
+    //   document.title='Good';
+    //  console.log(typeof document.body);
+    //  console.log(document.body.innerHTML);
+    //  document.body.innerHTML='<button>Good</button>';
+
+    function cng() {
+      const bt = document.querySelector('button');
+      if (bt.innerHTML === 'hello')
+        bt.innerHTML = 'hi';
+      else
+        bt.innerHTML = 'hello';
+    }
+    console.log(document.querySelector('button'));
+    console.log(document.querySelector('.js-button'));
   </script>
 </body>

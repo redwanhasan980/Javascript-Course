@@ -1,7 +1,7 @@
 const tlist1 = [];
 const tlist2 = [];
 const tlist3 = [];
-render();
+
 function addtodo() {
   let input = document.querySelector('.js-input');
   tlist1.push(input.value);
@@ -23,16 +23,15 @@ function addtodo2() {
 function addtodo3() {
   let input = document.querySelector('.js-input3');
   let date = document.querySelector('.js-date');
-  tlist3.push({name:input.value,date:date.value});
+  tlist3.push({ name: input.value, date: date.value });
   input.value = '';
   render();
 }
-function render()
-{
-  
+function render() {
+
   let todohtml = '';
-  tlist3.forEach(function(obj,index){
-    let name=obj.name;
+  tlist3.forEach(function (obj, index) {
+    let name = obj.name;
     let deudate = obj.date;
     html = `<div>
      ${name}</div>
@@ -48,6 +47,6 @@ function render()
   });
   document.querySelector('.js-todo-list3').innerHTML = todohtml;
 }
-document.querySelector('.js-add3').addEventListener('click',()=>{
-    addtodo3();
+document.querySelector('.js-add3').addEventListener('click', () => {
+  addtodo3();
 });
